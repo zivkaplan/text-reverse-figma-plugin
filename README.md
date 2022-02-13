@@ -1,11 +1,10 @@
-# Text Reverse
+# ↪️ Text Reverse ↩️
 
-## Figma Text Editing Plugin
+## 💡 The Simplest Figma plugin to flip text to fix RTL\LTR problems.
 
-A small plugin that flips text to fix the RTL\LTR problem.
+### ℹ️ Usage:
 
-![cover photo](https://github.com/zivkaplan/text-reverse-figma-plugin/blob/main/media/cover.png?raw=)
+-   Select a text element to flip its entire content.
+-   Selecting a specific part of the text will cause the flip operation only to the selected characters.
 
-Usage:
-Select a text element to flip its entire content.
-Selecting a specific part of the text will cause the flip operation only to the selected characters.
+<img src="https://github.com/zivkaplan/text-reverse-figma-plugin/blob/main/media/cover.png?raw=" alt="cover image" width="800"/>
