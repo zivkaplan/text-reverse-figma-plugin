@@ -36,6 +36,10 @@ async function main() {
     }
 
     node.insertCharacters(startIdx, reverseString(textToFlip));
+
+    // fix layer name
+    node.name = reverseString(node.characters);
+
     return 'Text reversed';
 }
 
