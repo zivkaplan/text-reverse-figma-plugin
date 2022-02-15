@@ -3,6 +3,7 @@
     "version": "1.1.0",
     "description": "Your Figma plugin",
     "main": "code.js",
+    "id": "1075481323314449492",
     "scripts": {
         "build": "tsc -p tsconfig.json"
     },
