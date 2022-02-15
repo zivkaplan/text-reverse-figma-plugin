@@ -1,9 +1,8 @@
 {
-  "name": "text-reverse",
-  "id": "1074368190348637224",
-  "api": "1.0.0",
-  "main": "code.js",
-  "editorType": [
-    "figma"
-  ]
+    "name": "text-reverse",
+    "id": "1075481323314449492",
+
+    "api": "1.0.0",
+    "main": "code.js",
+    "editorType": ["figma"]
 }
