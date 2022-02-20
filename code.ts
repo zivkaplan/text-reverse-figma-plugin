@@ -1,30 +1,17 @@
 function reverseString(str) {
     return str.split('').reverse().join('');
 }
-
-async function main() {
-    if (figma.currentPage.selection.length !== 1) {
-        return 'Select a text field.';
-    }
-
-    const node = figma.currentPage.selection[0];
-    if (node.type !== 'TEXT') {
-        return 'Select a text field.';
-    }
-
-    await Promise.all(
-        node
-            .getRangeAllFontNames(0, node.characters.length)
-            .map(figma.loadFontAsync)
-    );
+function ActivatePlugin(node) {
+    node.autoRename = false;
 
     let textToFlip, startIdx;
+    const emptyString = '';
 
     const textRange = figma.currentPage.selectedTextRange;
     if (!textRange || textRange.start === textRange.end) {
         textToFlip = node.characters;
-        startIdx = 0;
         node.characters = '';
+        startIdx = 0;
     } else {
         startIdx = textRange.start;
         textToFlip = node.characters
@@ -36,11 +23,30 @@ async function main() {
     }
 
     node.insertCharacters(startIdx, reverseString(textToFlip));
-
-    // fix layer name
-    node.name = reverseString(node.characters);
-
     return 'Text reversed';
+}
+async function main() {
+    if (figma.currentPage.selection.length !== 1) {
+        return 'Select a text field.';
+    }
+
+    const node = figma.currentPage.selection[0];
+    if (node.type !== 'TEXT') {
+        return 'Select a text field.';
+    }
+
+    const res = Promise.all(
+        node
+            .getRangeAllFontNames(0, node.characters.length)
+            .map(figma.loadFontAsync)
+    )
+        .then(() => ActivatePlugin(node))
+        .catch((e) => {
+            console.log(e.message);
+            return 'Cannot load fonts';
+        });
+
+    return res;
 }
 
 main().then((message) => figma.closePlugin(message));
