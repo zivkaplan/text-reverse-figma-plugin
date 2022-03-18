@@ -6,7 +6,6 @@ function ActivatePlugin(node) {
     node.autoRename = false;
 
     let textToFlip, startIdx;
-    const emptyString = '';
 
     const textRange = figma.currentPage.selectedTextRange;
     if (!textRange || textRange.start === textRange.end) {
