@@ -1,6 +1,7 @@
 function reverseString(str) {
     return str.split('').reverse().join('');
 }
+
 function ActivatePlugin(node) {
     node.autoRename = false;
 
@@ -25,6 +26,7 @@ function ActivatePlugin(node) {
     node.insertCharacters(startIdx, reverseString(textToFlip));
     return 'Text reversed';
 }
+
 async function main() {
     if (figma.currentPage.selection.length !== 1) {
         return 'Select a text field.';
